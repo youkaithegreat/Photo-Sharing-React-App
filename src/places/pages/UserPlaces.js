@@ -19,7 +19,7 @@ const DUMMY_PLACES = [
   },
   {
     id: "p2",
-    title: "Empire State Buiilding",
+    title: "Monica State Building",
     description: "One of the most famous sky scrapers in the world",
     imageUrl:
       "https://scontent-hou1-1.xx.fbcdn.net/v/t39.30808-6/267725706_10226632305424125_5309604990072239545_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=e3f864&_nc_ohc=HF8IpaRwb1gAX-6RaEh&_nc_ht=scontent-hou1-1.xx&oh=00_AT-_AvzqcAaRUuQVBCUvjHp6GZ1_8FUVldLOVp8iyrB5sQ&oe=62F4EB0B",
@@ -34,8 +34,8 @@ const DUMMY_PLACES = [
 
 const UserPlaces = () => {
   const userId = useParams().uid;
-  const loadedPlaces = DUMMY_PLACES.filter((place) => place.creator === userId);
-  return <PlaceList items={loadedPlaces} />;
+  const loadedPlaces = DUMMY_PLACES.filter( ( place ) => place.creator === userId );
+  return <PlaceList items={ loadedPlaces } />;
 };
 
 export default UserPlaces;
