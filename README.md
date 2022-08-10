@@ -14,3 +14,4 @@ https://www.udemy.com/course/react-nodejs-express-mongodb-the-mern-fullstack-gui
 ##### Project Data
 
 Currently being worked on as of August 2022
+Currently working on Backend
