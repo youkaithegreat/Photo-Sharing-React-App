@@ -5,8 +5,11 @@ import Input from "../../shared/components/FormElements/Input";
 import { VALIDATOR_REQUIRE, VALIDATOR_MINLENGTH } from "../../shared/util/validators"
 import Button from '../../shared/components/FormElements/Button'
 import { useForm } from '../../shared/hooks/form-hook'
+import { useHttpClient } from "../../shared/hooks/http-hook";
 
 const NewPlace = () => {
+  const { isLoading, error, sendRequest, clearError } = useHttpClient();
+
   const [ formState, inputHandler ] = useForm( {
     title: {
       value: '',
@@ -26,8 +29,6 @@ const NewPlace = () => {
 
   const placeSubmitHandler = event => {
     event.preventDefault();
-    console.log( formState.inputs );
-    //goes into database 
   };
 
 
