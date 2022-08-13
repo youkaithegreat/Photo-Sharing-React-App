@@ -37,7 +37,6 @@ const UpdatePlace = () => {
 
     useEffect( () => {
         try {
-
             const fetchPlace = async () => {
                 const responseData = await sendRequest( `http://localhost:3001/api/places/${placeId}` )
 
@@ -53,12 +52,8 @@ const UpdatePlace = () => {
                     }
                 }, true )
             }
-
-
             fetchPlace()
-        } catch ( err ) {
-
-        }
+        } catch ( err ) { }
     }, [ sendRequest, placeId, setFormData ] )
 
     const placeUpdateSubmitHandler = async event => {

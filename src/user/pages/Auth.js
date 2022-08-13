@@ -63,7 +63,6 @@ const Auth = () => {
 
         if ( isLoginMode ) {
             try {
-
                 const responseData = await sendRequest(
                     'http://localhost:3001/api/users/login',
                     'POST',
@@ -73,33 +72,23 @@ const Auth = () => {
                     } ), {
                     'Content-Type': 'application/json',
                 },
-
                 )
-
                 auth.login( responseData.user.id )
-            } catch ( err ) {
-
-            }
-
-
+            } catch ( err ) { }
         } else {
             try {
-
                 const responseData = await sendRequest( 'http://localhost:3001/api/users/signup', 'POST', JSON.stringify( {
                     name: formState.inputs.name.value,
                     email: formState.inputs.email.value,
                     password: formState.inputs.password.value
                 } ), {
                     'Content-Type': 'application/json',
-                }
-                );
-
+                } );
                 auth.login( responseData.user.id )
             }
             catch ( err ) {
             }
         }
-
     };
 
     return (
