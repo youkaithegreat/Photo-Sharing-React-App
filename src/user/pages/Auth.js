@@ -6,6 +6,7 @@ import Button from '../../shared/components/FormElements/Button';
 import ErrorModal from '../../shared/components/UIElements/ErrorModal';
 import LoadingSpinner from '../../shared/components/UIElements/LoadingSpinner';
 import ImageUpload from '../../shared/components/FormElements/ImageUpload';
+
 import {
     VALIDATOR_EMAIL,
     VALIDATOR_MINLENGTH,
@@ -77,21 +78,26 @@ const Auth = () => {
                     JSON.stringify( {
                         email: formState.inputs.email.value,
                         password: formState.inputs.password.value
-                    } ), {
-                    'Content-Type': 'application/json',
-                },
-                )
+                    } ),
+                    {
+                        'Content-Type': 'application/json'
+                    }
+                );
                 auth.login( responseData.user.id )
             } catch ( err ) { }
         } else {
             try {
-                const responseData = await sendRequest( 'http://localhost:3001/api/users/signup', 'POST', JSON.stringify( {
-                    name: formState.inputs.name.value,
-                    email: formState.inputs.email.value,
-                    password: formState.inputs.password.value
-                } ), {
-                    'Content-Type': 'application/json',
-                } );
+                const formData = new FormData();
+                formData.append( 'email', formState.inputs.email.value );
+                formData.append( 'name', formState.inputs.name.value );
+                formData.append( 'password', formState.inputs.password.value );
+                formData.append( 'image', formState.inputs.image.value );
+                const responseData = await sendRequest(
+                    'http://localhost:3001/api/users/signup',
+                    'POST',
+                    formData
+                );
+
                 auth.login( responseData.user.id )
             }
             catch ( err ) {
