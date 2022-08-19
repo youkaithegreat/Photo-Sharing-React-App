@@ -65,19 +65,19 @@ const NewPlace = () => {
       <ErrorModal error={ error } onClear={ clearError } />
       <form className="place-form" onSubmit={ placeSubmitHandler }>
         { isLoading && <LoadingSpinner asOverlay /> }
-        <Input id="title" element="input" type="text" label="Title"
+        <Input id="title" element="input" type="text" label="Short Summary"
           validators={ [ VALIDATOR_REQUIRE() ] }
           errorText="Please enter a valid title."
           onInput={ inputHandler } />
-        <Input id="description" element="textarea" type="text" label="Description"
+        <Input id="description" element="textarea" type="text" label="What stood out?"
           validators={ [ VALIDATOR_REQUIRE(), VALIDATOR_MINLENGTH( 5 ) ] }
           errorText="Please enter a valid description (at least 5 characters)."
           onInput={ inputHandler } />
-        <Input id="address" element="input" type="text" label="Address"
+        <Input id="address" element="input" type="text" label="Location - Must Be Address"
           validators={ [ VALIDATOR_REQUIRE() ] }
           errorText="Please enter a valid address."
           onInput={ inputHandler } />
-        <ImageUpload id="image" onInput={ inputHandler } errorText="Please provide an image" />
+        <ImageUpload id="image" onInput={ inputHandler } errorText="Coffee Photo" />
         <Button type="submit" disabled={ !formState.isValid }>
           Add Place
         </Button>
