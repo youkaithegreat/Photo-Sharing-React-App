@@ -2,7 +2,7 @@
 
 #### ReactJS, Google Maps API, MongoDB, ExpressJS, HTMl/CSS, NodeJS
 
-#### Live Deployment https://chimerical-crumble-5f85a0.netlify.app/
+#### This is the Front End portion of a Full Stack Application
 
 Deployed via Github to Netlify
 
